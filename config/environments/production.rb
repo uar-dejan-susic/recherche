@@ -83,4 +83,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Protect App on Heroku with basic HTTP auth
+  user = ENV.fetch('HTTP_USER') { nil }
+  pass = ENV.fetch('HTTP_PASS') { nil }
+  if !user.nil? && !pass.nil?
+    config.middleware.use '::Rack::Auth::Basic' do |u, p|
+      [u, p] == [user, pass]
+    end
+  end
 end
