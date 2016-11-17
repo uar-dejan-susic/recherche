@@ -11,4 +11,10 @@ table.table.table-striped.table-hover
         | Available slots
   tbody
   - @options.each do |option|
-    | <tr><td>#{option.title}</td><td>#{option.template}</td><td>#{option.available_slots}</td></tr>
+    tr
+      td #{option.title}
+      td #{option.template}
+      td #{option.available_slots}
+      td = link_to 'Show', option
+      td = link_to 'Edit', edit_option_path(option)
+      td = link_to 'Destroy', option, method: :delete, data: { confirm: 'Are you sure?' }

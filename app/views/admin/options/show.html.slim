@@ -1,0 +1,16 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @option.title
+
+p
+  strong Template:
+  = @option.template
+
+p
+  strong Available slots:
+  = @option.available_slots
+
+= link_to 'Edit', edit_option_path(@option), class: 'btn btn-default'
+= link_to 'Back', options_path, class: 'btn btn-standard'

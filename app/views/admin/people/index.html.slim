@@ -9,4 +9,9 @@ table.table.table-striped.table-hover
         | Email
   tbody
   - @people.each do |p|
-    | <tr><td>#{p.first_name} #{p.last_name}</td><td>#{p.email}</td></tr>
+    tr
+      td = p.name
+      td = p.email
+      td = link_to 'Show', p
+      td = link_to 'Edit', edit_person_path(p)
+      td = link_to 'Destroy', p, method: :delete, data: {confirm: 'Are you sure?'}
