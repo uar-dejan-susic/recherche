@@ -1,0 +1,25 @@
+//@import "bootstrap-sass-official/assets/stylesheets/bootstrap/dropdowns";
+
+.caret {
+  border: none;
+  display: inline;
+  vertical-align: baseline;
+  &:before {
+    @include fa-icon();
+    content: $fa-var-angle-down;
+    position: relative;
+    top: 1px;
+  }
+}
+
+.dropup,
+.navbar-fixed-bottom .dropdown {
+  // Reverse the caret
+  .caret {
+    border: none;
+    &:before {
+      content: $fa-var-angle-up;
+      top: -3px;
+    }
+  }
+}

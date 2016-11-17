@@ -1,0 +1,90 @@
+@import "variables";
+@import "type_mixins";
+
+/*  Typography
+---------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 24px;
+  padding: 0;
+  font-size: 100%;
+  font-weight: normal;
+  color: $color-black;
+  & a {
+    font-weight: inherit;
+  }
+  & small {
+    color: $color-gray-3;
+  }
+  & .normal {
+    font-size: .8em;
+    line-height: normal;
+  }
+}
+
+h1 {
+  @include type-1();
+}
+
+h2 {
+  @include type-2();
+}
+
+h3 {
+  @include type-3();
+}
+
+h4 {
+  @include type-4();
+}
+
+h5 {
+  @include type-5();
+}
+
+h6 {
+  @include type-6();
+}
+
+p {
+  @include type-body();
+}
+
+.small {
+  @include type-small();
+}
+
+.fine-print {
+  @include type-xsmall();
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+small {
+  @include fontSize($type-XS);
+}
+
+hr {
+  margin: 0.5rem 0;
+  height: 1px;
+  border: 1px solid $color-gray-2;
+}
+
+.agenda-light {
+  font-family: $font_light;
+}
+
+.no-margin {
+  margin: 0 !important;
+}

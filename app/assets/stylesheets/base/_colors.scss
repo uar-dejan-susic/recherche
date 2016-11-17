@@ -1,0 +1,184 @@
+// Colors
+
+// Home page
+$color-white        : #fff;
+$color-black        : #000;
+
+$color-gray-1       : #F4F4F2;
+$color-gray-2       : #E2E2E2;
+$color-gray-3       : #CCCCCC;
+$color-gray-4       : #999999;
+$color-gray-5       : #666666;
+$color-gray-6       : #444444;
+$color-gray         : $color-gray-6;
+
+$color-tan_gray-1   : #EEEAE3;
+$color-tan_gray-2   : #DBD9D1;
+$color-tan_gray-3   : #97958C;
+$color-tan_gray     : $color-tan_gray-3;
+
+$color-blue-1       : #ABEAFF;
+$color-blue-2       : #00A4E3;
+$color-blue-3       : #6BB4D1;
+$color-blue-4       : #00719d;
+$color-blue         : $color-blue-2;
+
+$color-pink         : #EC1163;
+
+$color-red-1        : #F2DEDE;
+$color-red-2        : #D2222A;
+$color-red-3        : #F1BDC0;
+$color-red-4        : #C97D80;
+$color-red-5        : #9C1A20;
+$color-red          : $color-red-2;
+
+$color-orange       : #F05A21;
+
+$color-purple       : #9A3993;
+
+$color-yellow-1     : #FFE8AF; // was FFE194 replace both FFE194 & FFEDBF
+$color-yellow-2     : #FFC50A;
+$color-yellow-3     : #FFF100;
+$color-yellow-4     : #C5B07A; // was FFEDBF
+$color-yellow-5     : #7E6206;
+$color-yellow-6     : #FFF; // was C5B07A
+$color-yellow       : $color-yellow-3;
+
+$color-green-1      : #EAF9D4;
+$color-green-2      : #C6E8CA;
+$color-green-3      : #88BA3A;
+$color-green-4      : #39B549;
+$color-green        : $color-green-4;
+
+// New Brand Colors
+
+$color-primary-blue    : #00a4e4;
+$color-primary-blue-80 : #39aedf;
+$color-primary-blue-50 : #83cceb;
+$color-primary-blue-20 : #cdebf7;
+
+$color-primary-gray    : #717375;
+$color-primary-gray-80 : #8d8f91;
+$color-primary-gray-50 : #b8b9ba;
+$color-primary-gray-20 : #e3e3e3;
+
+$color-secondary-yellow	    : #F3C04F;
+$color-secondary-yellow-80   : #f5cd72;
+$color-secondary-yellow-50	: #f9dfa7;
+$color-secondary-yellow-20   : #fdf2dc;
+
+$color-secondary-orange	    : #f6905d;
+$color-secondary-orange-80   : #f8a67d;
+$color-secondary-orange-50	: #fac7ae;
+$color-secondary-orange-20   : #fde9df;
+
+$color-secondary-purple	    : #5a3f99;
+$color-secondary-purple-80   : #7b65ad;
+$color-secondary-purple-50	: #ac9fcc;
+$color-secondary-purple-20   : #ded9eb;
+
+$color-secondary-green	    : #00b194;
+$color-secondary-green-80   : #33bfa7;
+$color-secondary-green-50	: #7fd7c8;
+$color-secondary-green-20   : #ccefe9;
+
+
+// Colors by type
+$color_base         : $color-gray;
+$color_link         : $color-blue;
+$color_linkhover    : $color-black;
+$color_linkactive    : $color-black;
+// $color_linkactive   : $color-red-2;
+
+$color_button-default : #DBD9D1;
+
+$colors: (
+	primary-blue: $color-primary-blue,
+	primary-blue-80: $color-primary-blue-80,
+	primary-blue-50: $color-primary-blue-50,
+	primary-blue-20: $color-primary-blue-20,
+
+	primary-gray: $color-primary-gray,
+	primary-gray-80: $color-primary-gray-80,
+	primary-gray-50: $color-primary-gray-50,
+	primary-gray-20: $color-primary-gray-20,
+
+	secondary-green: $color-secondary-green,
+	secondary-green-80: $color-secondary-green-80,
+	secondary-green-50: $color-secondary-green-50,
+	secondary-green-20: $color-secondary-green-20,
+
+	secondary-yellow: $color-secondary-yellow,
+	secondary-yellow-80: $color-secondary-yellow-80,
+	secondary-yellow-50: $color-secondary-yellow-50,
+	secondary-yellow-20: $color-secondary-yellow-20,
+
+	secondary-orange: $color-secondary-orange,
+	secondary-orange-80: $color-secondary-orange-80,
+	secondary-orange-50: $color-secondary-orange-50,
+	secondary-orange-20: $color-secondary-orange-20,
+
+	secondary-purple: $color-secondary-purple,
+	secondary-purple-80: $color-secondary-purple-80,
+	secondary-purple-50: $color-secondary-purple-50,
+	secondary-purple-20: $color-secondary-purple-20,
+
+	"white": $color-white,
+	"black": $color-black,
+
+	gray-1: $color-gray-1,
+	gray-2: $color-gray-2,
+	gray-3: $color-gray-3,
+	gray-4: $color-gray-4,
+	gray-5: $color-gray-5,
+	gray-6: $color-gray-6,
+	"gray": $color-gray,
+
+	tan_gray-1: $color-tan_gray-1,
+	tan_gray-2: $color-tan_gray-2,
+	tan_gray-3: $color-tan_gray-3,
+	tan_gray: $color-tan_gray,
+
+	blue-1: $color-blue-1,
+	blue-2: $color-blue-2,
+	blue-3: $color-blue-3,
+	blue-4: $color-blue-4,
+	"blue": $color-blue,
+
+	"pink": $color-pink,
+
+	red-1: $color-red-1,
+	red-2: $color-red-2,
+	red-3: $color-red-3,
+	red-4: $color-red-4,
+	red-5: $color-red-5,
+	"red": $color-red,
+
+	"orange": $color-orange,
+
+	"purple": $color-purple,
+
+	yellow-1: $color-yellow-1,
+	yellow-2: $color-yellow-2,
+	yellow-3: $color-yellow-3,
+	yellow-4: $color-yellow-4,
+	yellow-5: $color-yellow-5,
+	yellow-6: $color-yellow-6,
+	"yellow": $color-yellow,
+
+	green-1: $color-green-1,
+	green-2: $color-green-2,
+	green-3: $color-green-3,
+	green-4: $color-green-4,
+	"green": $color-green,
+);
+
+
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+ 
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
+}

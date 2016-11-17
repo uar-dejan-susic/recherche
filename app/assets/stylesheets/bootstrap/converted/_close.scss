@@ -1,0 +1,24 @@
+@import "../../base/fonts";
+@import "../../base/type_mixins";
+
+.close {
+  float: right;
+  background: none;
+  line-height: 1;
+  text-transform: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: $close-color;
+  -webkit-appearance: none;
+  & > span {
+    display: none;
+  }
+  &:after {
+    @include fa-icon();
+    @include fontSize(20px);
+    content: $fa-var-close;
+    text-shadow: $close-text-shadow;
+  }
+}

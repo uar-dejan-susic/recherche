@@ -1,0 +1,295 @@
+@import "breakpoints";
+@import "bourbon";
+
+.flex-container, .row, .form-horizontal .form-group {
+  @include display(flex);
+  @include flex-flow(row wrap);
+  -ms-flex-wrap: wrap;  // IE10
+  @include flex-basis($base-font-size);
+  list-style: none;
+
+  .lt-ie10 & {
+    @include clearfix;
+  }
+}
+
+.flex-vertical {
+  flex-direction: column;
+}
+
+%mobile-first {
+  width: 100%;
+}
+
+%relative {
+  position: relative;
+}
+
+.flex-item {
+  @extend %mobile-first;
+  box-sizing: border-box;
+}
+
+.flex-right {
+  @include justify-content(flex-end);
+}
+
+.flex-center {
+  @include justify-content(center);
+}
+
+.flex-space-around {
+  @include justify-content(space-around);
+}
+
+.flex-space-between {
+  @include justify-content(space-between);
+}
+
+.flex-top {
+  @include align-items(flex-start);
+}
+
+.flex-middle {
+  @include align-items(center);
+}
+
+.flex-bottom {
+  @include align-items(flex-end);
+}
+
+.flex-baseline {
+  @include align-items(baseline);
+}
+
+.flex-item-top {
+  @include align-self(flex-start);
+}
+
+.flex-item-middle {
+  @include align-self(center);
+}
+
+.flex-item-bottom {
+  @include align-self(flex-end);
+}
+
+// Examples:
+//  .flex-full
+//  .flex-1of2
+//  .flex-md-1of2
+//  .flex-fill
+//  .flex-sm-fill-2
+//  .flex-collapse
+@mixin grid-sizing($name: "") {
+  @if $name != "" {
+    $name: "-#{$name}";
+  } @else {
+    $name: "";
+  }
+  $percents: ();
+  $ofs: ();
+  $i: 1;
+  @while $i < 12 {
+    $i: $i + 1;
+    $j: 1;
+    @while $j <= $i {
+      $percent-key: round(100 * $j / $i);
+      @if not map-has-key($percents, $percent-key) {
+        $percents: map-merge($percents, ($percent-key: true));
+        %percent#{$name}#{$percent_key} {
+            width: percentage($j / $i);
+        }
+      }
+      @if $j < $i {
+        .flex#{$name}-#{$j}of#{$i} {
+          @extend %percent#{$name}#{$percent-key};
+          .lt-ie10 & {
+            @extend %percent#{$name}#{$percent-key};
+          }
+        }
+      }
+      $j: $j + 1;
+    }
+  }
+  .flex#{$name}-hide {
+    display: none;
+  }
+  .flex#{$name}-show {
+    display: block;
+  }
+  %width100#{$name} {
+    width: 100%;
+  }
+  .flex#{$name}-full {
+    @extend %width100#{$name};
+  }
+
+  %flex-flex#{$name} {
+    width: auto;
+  }
+  .flex#{$name}-fill {
+    @extend %flex-flex#{$name};
+    flex: 1 1 1px;
+    -ms-flex: 1 1 1px;
+  }
+  $i: 1;
+  @while $i < 6 {
+    $i: $i + 1;
+    .flex#{$name}-fill-#{$i} {
+      @extend %flex-flex#{$name};
+      flex: $i 1 1px;
+      -ms-flex: $i 1 1px;
+    }
+  }
+  .flex#{$name}-collapse {
+    @extend %flex-flex#{$name};
+  }
+
+  $i: -7;
+  @while $i < 6 {
+    $i: $i + 1;
+    .flex#{$name}-order-#{$i} {
+      @include order($i);
+    }
+  }
+
+  // bootstrap classes
+  $name_: $name;
+  @if $name == "" {
+    $name: "-xs";
+    $i: 0;
+    @while $i < 12 {
+      $i: $i + 1;
+      .col-xs-#{$i} {
+        @extend %relative;
+      }
+    }
+    @each $breakpoint, $min-width in $breakpoints {
+      @if($breakpoint != "xs") {
+        $i: 0;
+        @while $i < 12 {
+          $i: $i + 1;
+          .col-#{$breakpoint}-#{$i} {
+            @extend %mobile-first;
+            @extend %relative;
+          }
+        }
+      }
+    }
+  }
+  .col#{$name}-push-0 {
+    left: auto;
+  }
+  .col#{$name}-pull-0 {
+    right: auto;
+  }
+  $i: 0;
+  @while $i < 12 {
+    $i: $i + 1;
+    $percent-key: round(100 * $i / 12);
+    @if($i < 12) {
+      .col#{$name}-#{$i} {
+        @extend %percent#{$name_}#{$percent-key};
+      }
+    } @else {
+       .col#{$name}-#{$i} {
+        @extend %width100#{$name_};
+      }
+    }
+
+    .col#{$name}-offset-#{$i} {
+      margin-left: percentage($i / 12);
+    }
+    .col#{$name}-push-#{$i} {
+      left: percentage($i / 12);
+    }
+    .col#{$name}-pull-#{$i} {
+      right: percentage($i / 12);
+    }
+  }
+}
+
+%col {
+  float: left;
+  min-height: 1px;
+}
+
+.lt-ie10 {
+  .flex-item {
+    @extend %col;
+  }
+  $i: 0;
+  @while $i < 12 {
+    $i: $i + 1;
+    .col-xs-#{$i} {
+      @extend %col;
+    }
+  }
+  @each $name, $min-width in $breakpoints {
+    $i: 0;
+    @while $i < 12 {
+      $i: $i + 1;
+      .col-#{$name}-#{$i} {
+        @extend %col;
+      }
+    }
+  }
+}
+
+// Examples:
+//    .flex-gutters
+//    .flex-sm-gutters-wide
+//    .flex-md-gutters-wider
+//    .flex-lg-gutters-widest
+@mixin grid-gutters($name: "") {
+  @if $name != "" {
+    $name: "-#{$name}";
+  }
+  @each $part in 0.5, 1, 2, 3 {
+    $wide: "";
+    @if $part == 1 {
+      $wide: "-wide";
+    } @else if $part == 2 {
+      $wide: "-wider";
+    } @else if $part == 3 {
+      $wide: "-widest";
+    }
+    .flex#{$name}-gutters#{$wide} {
+      margin-left: -1rem * $part;
+      & > .flex-item {
+        padding-left: 1rem * $part;
+        margin-bottom: 1rem * $part;
+        &.flex-item-no-bottom-gutter {
+          margin-bottom: 0;
+        }
+      }
+      &.flex-no-bottom-gutter {
+        margin-bottom: -1rem * $part;
+      }
+    }
+  }
+}
+
+@mixin margins($name: "") {
+  @if $name != "" {
+    $name: "-#{$name}";
+  } @else {
+    $name: "";
+  }
+  .margins#{$name} {
+    margin: 0 8.33333%;
+  }
+}
+
+@include grid-sizing();
+@include grid-gutters();
+@include margins();
+
+@each $breakpoint, $min-width in $breakpoints {
+  @include breakpoint($breakpoint) {
+    @include grid-sizing($breakpoint);
+    @include grid-gutters($breakpoint);
+    @include margins($breakpoint);
+  }
+}

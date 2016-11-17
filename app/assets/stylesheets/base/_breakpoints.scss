@@ -1,0 +1,19 @@
+// Include this file to get at the breakpoints mixin
+
+@import "variables";
+
+$breakpoints: (
+  "xs": $screen-xs-min,
+  "sm": $screen-sm-min,
+  "md": $screen-md-min,
+  "lg": $screen-lg-min
+);
+
+@mixin breakpoint($point) {
+  @each $name, $min-width in $breakpoints {
+    @if ($name == $point) {
+      @media (min-width: #{$min-width}) { @content }
+    }
+  }
+}
+

@@ -1,0 +1,7 @@
+@each $breakpoint, $min-width in $breakpoints {
+  @include breakpoint($breakpoint) {
+    body::after {
+      content: "#{$breakpoint}";
+    }
+  }
+}
