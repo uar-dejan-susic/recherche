@@ -1,0 +1,14 @@
+h4 Options
+
+table.table.table-striped.table-hover
+  thead
+    tr
+      td
+        | Title
+      td
+        | Template
+      td
+        | Available slots
+  tbody
+  - @options.each do |option|
+    | <tr><td>#{option.title}</td><td>#{option.template}</td><td>#{option.available_slots}</td></tr>
