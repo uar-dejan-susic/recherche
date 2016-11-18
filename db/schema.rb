@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114210904) do
+ActiveRecord::Schema.define(version: 20161117224556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20161114210904) do
     t.integer  "available_slots"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "options_people", id: false, force: :cascade do |t|
+    t.integer "options_id"
+    t.integer "people_id"
+    t.index ["options_id"], name: "index_options_people_on_options_id", using: :btree
+    t.index ["people_id"], name: "index_options_people_on_people_id", using: :btree
   end
 
   create_table "people", force: :cascade do |t|

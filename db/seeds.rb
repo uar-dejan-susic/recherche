@@ -24,7 +24,8 @@ option = Option.create([
     {
         title: 'John Doe portfolio is ready',
         template: 'Education Portfolio',
-        available_slots: 3
+        available_slots: 3,
+        people: prospects
     },
     {
         title: 'Terence Hill portfolio is ready for review',
