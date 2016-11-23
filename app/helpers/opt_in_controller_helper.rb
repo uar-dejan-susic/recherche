@@ -1,0 +1,2 @@
+module OptInControllerHelper
+end

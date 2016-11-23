@@ -23,13 +23,13 @@ prospects = Person.create([
 option = Option.create([
     {
         title: 'John Doe portfolio is ready',
-        template: 'Education Portfolio',
+        template: 'education_portfolio',
         available_slots: 3,
         people: prospects
     },
     {
         title: 'Terence Hill portfolio is ready for review',
-        template: 'Education Portfolio',
+        template: 'education_portfolio',
         available_slots: 2
     }
                        ])

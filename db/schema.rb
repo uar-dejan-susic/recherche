@@ -23,19 +23,27 @@ ActiveRecord::Schema.define(version: 20161117224556) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "options_people", id: false, force: :cascade do |t|
-    t.integer "options_id"
-    t.integer "people_id"
-    t.index ["options_id"], name: "index_options_people_on_options_id", using: :btree
-    t.index ["people_id"], name: "index_options_people_on_people_id", using: :btree
-  end
-
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "prospects", force: :cascade do |t|
+    t.integer  "option_id"
+    t.integer  "person_id"
+    t.boolean  "tried_to_opt_in", default: false
+    t.boolean  "checked_in",      default: false
+    t.datetime "checked_in_date"
+    t.boolean  "opted_in",        default: false
+    t.datetime "opted_in_date"
+    t.string   "access_token"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["option_id"], name: "index_prospects_on_option_id", using: :btree
+    t.index ["person_id"], name: "index_prospects_on_person_id", using: :btree
   end
 
 end

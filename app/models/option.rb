@@ -1,3 +1,12 @@
 class Option < ApplicationRecord
-  has_and_belongs_to_many :people, as: :prospects
+  has_many :prospects
+  has_many :people, through: :prospects
+
+  def open_slots
+    self.available_slots - prospects.accepted.count
+  end
+
+  def is_expired?
+    false
+  end
 end

@@ -1,0 +1,16 @@
+.opt-in-container
+  .opt-in-description
+    h1 Hello, #{@prospect.person.first_name}
+
+    p Thank you for considering your self as a potential reviewer of education portfolio.
+    p Bare in mind that we have certain slots available for this portfolio.
+
+.opt-in-event
+  p
+    strong
+      | If you are interested in reviewing this portfolio please click on button below. Open slots #{@option.open_slots}
+  = form_tag '/opting_in/' do
+    = hidden_field_tag 'access_token', @prospect.access_token
+    = submit_tag 'I want in!', class: "button btn btn-lg btn-success"
+
+  br
