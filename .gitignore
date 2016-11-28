@@ -21,3 +21,6 @@
 
 # Tools
 .idea
+
+# OS stuff
+.DS_Store
