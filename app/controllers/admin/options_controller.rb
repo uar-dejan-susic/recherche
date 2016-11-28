@@ -35,7 +35,6 @@ module Admin
 
     def update
       respond_to do |format|
-        byebug
         if @option.update(option_params)
           format.html { redirect_to @option, notice: 'Option was successfully updated.' }
           format.json { render :show, status: :ok, location: @option }

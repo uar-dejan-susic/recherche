@@ -1,17 +1,19 @@
-.flex-item.flex-md-3of4
-  .status
-  - if option.is_expired?
-    span.label.label-warning Expired
-  - else
-    span.label.label-success Active
-    span.label.label-info
-      | Invited #{option.prospects.count}
+.flex-item.flex-md-2of4
   .title
-    strong = option.title
-.flex-item.flex-item-middle.flex-md-1of4.flex-center
-  .counts
+    p Option:
+      strong #{option.title}
+  .status
+    - if option.is_expired?
+      span.label.label-warning Expired
+    - else
+      span.label.label-success Active
+      span.label.label-info
+        | #{option.template.titleize}
+.flex-item.flex-item-middle.flex-md-1of4
+  .counts.flex-center
     = option.count_accepted
     | /
     = option.available_slots
+.flex-item.flex-item-middle.flex-md-1of4.flex-middle
   .links
     = link_to 'Show', option

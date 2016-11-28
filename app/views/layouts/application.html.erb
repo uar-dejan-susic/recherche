@@ -43,9 +43,7 @@
     </nav>
     <main class="l-main ui-view-container" role="main" id="main" tabindex="1">
       <toaster-container toaster-options="{'close-button': true, 'time-out': 2000}"></toaster-container>
-      <div ui-view autoscroll="false">
-        <%= yield %>
-      </div>
+      <%= yield %>
     </main>
     <footer class="footer" role="contentinfo">
       <figure class="footer-logo photo">

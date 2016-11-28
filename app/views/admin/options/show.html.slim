@@ -1,14 +1,29 @@
 p#notice = notice
 
-h2
-  | Option for #{@option.template.titleize}
+.option-details
+  h2
+    | Option for #{@option.template.titleize}
 
-h4
-  = @option.title
+  h4
+    = @option.title
 
-strong Available slots:
-p
-  = @option.available_slots
+  .slot-info.first
+    .title
+      | Opted-In
+    .information
+      = @option.count_accepted
+
+  .slot-info.second.yellow-slot
+    .title
+      | Total slots
+    .information
+      = @option.available_slots
+
+  .slot-info.third.blue-slot
+    .title
+      | Peek
+    .information
+      = @option.prospects.reckon.count
 
 section.people
   table.table.table-striped.table-hover

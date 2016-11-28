@@ -1,16 +1,15 @@
 h2 Dashboard
 
 .admin-section
-  .container
-    section.centeredContent
-      .flex-container.flex-md-gutters
+  section.centeredContent
+    .flex-container.flex-md-gutters
+      .flex-item
+        hr
+      - @options.each do |option|
+        = render 'admin/dashboard/option', option: option
         .flex-item
           hr
-        - @options.each do |option|
-          = render 'admin/dashboard/option', option: option
-          .flex-item
-            hr
-    section.centeredContent
-      .actions.pull-right
-        = link_to 'Options', options_path, class: "btn btn-default"
-        = link_to 'People', people_path, class: "btn btn-default"
+  section.centeredContent
+    .actions.pull-right
+      = link_to 'Options', options_path, class: "btn btn-default"
+      = link_to 'People', people_path, class: "btn btn-default"

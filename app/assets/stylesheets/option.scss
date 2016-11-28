@@ -21,3 +21,70 @@
 .form-button {
   margin-left: .5em;
 }
+
+.slot-info {
+  position: absolute;
+  left: 400px;
+  top: 40px;
+  border: 1px solid #EAF9D4;
+  border-radius: 5px;
+  min-height: 52px;
+  min-width: 76px;
+  background-color: #EAF9D4;
+  color: #287f33;
+
+  .title {
+    font-weight: bold;
+    padding: 0.3em;
+    border-bottom: 1px solid #EAF9D4;
+    text-align: center;
+  }
+
+  .information {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &.blue-slot {
+    color: #00719d;
+    background-color: #ABEAFF;
+    border-color: #ABEAFF;
+
+    .title {
+      border-color: #ABEAFF;
+    }
+  }
+
+  &.yellow-slot {
+    color: #b38a07;
+    background-color: #FFE8AF;
+    border-color: #FFE8AF;
+
+    .title {
+      border-color: #FFE8AF;
+    }
+  }
+
+  &.red-slot {
+    color: #9C1A20;
+    background-color: #F1BDC0;
+    border-color: #F1BDC0;
+
+    .title {
+      border-color: #F1BDC0;
+    }
+  }
+
+  &.first {
+    left: 400px
+  }
+
+  &.second {
+    left: 486px
+  }
+
+  &.third {
+    left: 572px
+  }
+}
