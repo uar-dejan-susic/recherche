@@ -1,16 +1,36 @@
 p#notice = notice
 
-p
-  strong Title:
+h2
+  | Option for #{@option.template.titleize}
+
+h4
   = @option.title
 
+strong Available slots:
 p
-  strong Template:
-  = @option.template
-
-p
-  strong Available slots:
   = @option.available_slots
 
-= link_to 'Edit', edit_option_path(@option), class: 'btn btn-default'
-= link_to 'Back', options_path, class: 'btn btn-standard'
+section.people
+  table.table.table-striped.table-hover
+    thead
+      tr
+        td
+          | Name
+        td
+          | Unique Link
+        td
+    tbody
+    - @option.prospects.each do |person|
+      tr
+        td #{person.name}
+        td
+          = link_to opt_in_template_url(person.access_token), opt_in_template_url(person.access_token)
+        td
+          - if person.opted_in?
+            span.label.label-success Opted-In
+          - if person.checked_in?
+            span.label.label-info Was Considering
+
+.actions.pull-right
+  = link_to 'Edit', edit_option_path(@option), class: 'btn btn-default'
+  = link_to 'Back', options_path, class: 'btn btn-standard'

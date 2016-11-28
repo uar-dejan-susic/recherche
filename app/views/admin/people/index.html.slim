@@ -1,4 +1,4 @@
-h4 People
+h2 People
 
 table.table.table-striped.table-hover
   thead
@@ -7,11 +7,17 @@ table.table.table-striped.table-hover
         | Name
       td
         | Email
+      td
+        | # of Options
   tbody
   - @people.each do |p|
     tr
       td = p.name
       td = p.email
+      td = p.options.count
       td = link_to 'Show', p
       td = link_to 'Edit', edit_person_path(p)
       td = link_to 'Destroy', p, method: :delete, data: {confirm: 'Are you sure?'}
+
+.actions.pull-right
+  = link_to 'New Person', new_person_path, class: "btn btn-default"

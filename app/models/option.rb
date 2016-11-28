@@ -9,4 +9,12 @@ class Option < ApplicationRecord
   def is_expired?
     false
   end
+
+  def count_accepted
+    prospects.accepted.count
+  end
+
+  def count_invited
+    prospects.count
+  end
 end

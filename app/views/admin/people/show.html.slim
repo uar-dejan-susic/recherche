@@ -1,12 +1,15 @@
 p#notice = notice
 
-p
-  strong Name:
-  = @person.name
+h2
+  = "#{@person.name} (#{@person.email})"
 
-p
-  strong Template:
-  = @person.email
+section.options
+  strong
+    | Invited for options:
+  - @person.options.each do |option|
+    div
+      span.label.label-info #{option.title}
 
-= link_to 'Edit', edit_person_path(@person)
-= link_to 'Back', people_path
+.actions.pull-right
+  = link_to 'Edit', edit_person_path(@person), class: "btn btn-default"
+  = link_to 'Back', people_path, class: "btn btn-default"

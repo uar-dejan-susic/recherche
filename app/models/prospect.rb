@@ -7,6 +7,8 @@ class Prospect < ApplicationRecord
   scope :accepted, -> { where(opted_in: true) }
   scope :reckon, -> { where(checked_in: true) }
 
+  delegate :name, to: :person
+
   def i_want!
     self.opted_in = true
     self.opted_in_date = DateTime.now

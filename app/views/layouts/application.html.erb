@@ -13,6 +13,83 @@
   </head>
 
   <body>
-    <%= yield %>
+  <impersonation-banner></impersonation-banner>
+  <div class="canvas">
+    <nav class="navbar navbar-ncarb">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <figure class="logo">
+            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#ncarbNavmenu" data-canvas="body">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#">
+              <%= image_tag('ncarb-logo.png') %>
+            </a>
+          </figure>
+        </div>
+        <div id="ncarbNavmenu" class="collapse navbar-collapse navmenu-fixed-left offcanvas" role="navigation">
+          <% unless @public %>
+            <ul class="nav navbar-nav">
+              <li class="global-nav">
+                <%= link_to "Admin dashboard", admin_dashboard_path	  %>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+    <main class="l-main ui-view-container" role="main" id="main" tabindex="1">
+      <toaster-container toaster-options="{'close-button': true, 'time-out': 2000}"></toaster-container>
+      <div ui-view autoscroll="false">
+        <%= yield %>
+      </div>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <figure class="footer-logo photo">
+        <a href="http://www.ncarb.org" class="url">
+          <%= image_tag('ncarb-logo_w.png', alt: "NCARB home") %>
+        </a>
+      </figure>
+      <ul class="org-card">
+        <li>
+          <span class="org">National Council of Architectural Registration Boards</span>
+        </li>
+        <li>
+          <address>
+            <ul>
+              <li><span class="street-address">1801 K Street, NW Suite 700K</span></li>
+              <li>
+                <span class="locality">Washington</span>,
+                <span class="region">DC</span>,
+                <span class="postal-code">20006</span>
+              </li>
+            </ul>
+          </address>
+        </li>
+        <li>
+          <span class="tel">
+            <span class="type">P<span class="label-hide">hone</span></span>:
+          <span class="value"><a href="tel:12028790520">202-879-0520</a></span>
+          </span>
+          <span class="tel">
+            <span class="type">F<span class="label-hide">ax</span></span>:
+          <span class="value">202-783-0290</span>
+          </span>
+        </li>
+      </ul>
+      <ul class="footer-links">
+        <li><a href="index.html">NCARB Home</a></li>
+        <li><a href="http://ncarb.org/en/FAQs.aspx">FAQs</a></li>
+        <li><a href="http://ncarb.org/en/Contact-Us.aspx">Contact Us</a></li>
+      </ul>
+      <div class="copyright">
+        <p>&copy; National Council of Architectural Registration Boards</p>
+        <p><a href="#link">Privacy Policy</a></p>
+      </div>
+    </footer>
+  </div>
   </body>
 </html>

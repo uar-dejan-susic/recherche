@@ -1,4 +1,5 @@
 class OptInController < ApplicationController
+  before_action :set_public
   before_action :check_link_and_load_option, only: [:index, :create]
 
   def index
@@ -23,6 +24,10 @@ class OptInController < ApplicationController
   end
 
   private
+
+  def set_public
+    @public = true;
+  end
 
   def check_link_and_load_option
     @prospect = Prospect.find_by(access_token: params[:access_token])

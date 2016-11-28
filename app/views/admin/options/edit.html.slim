@@ -1,7 +1,7 @@
-h1 Editing Option
+h2 Editing Option
 
 = render 'form', option: @option
 
-= link_to 'Show', @option
-|
-= link_to 'Back', options_path
+
+= link_to 'Show', @option, class: 'btn btn-default'
+= link_to 'Back', options_path, class: 'btn btn-default form-button'

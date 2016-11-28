@@ -1,4 +1,4 @@
-h4 Options
+h2 Options
 
 table.table.table-striped.table-hover
   thead
@@ -9,12 +9,18 @@ table.table.table-striped.table-hover
         | Template
       td
         | Available slots
+      td
+        | Invited people
   tbody
   - @options.each do |option|
     tr
       td #{option.title}
-      td #{option.template}
+      td #{option.template.titleize}
       td #{option.available_slots}
+      td #{option.count_invited}
       td = link_to 'Show', option
       td = link_to 'Edit', edit_option_path(option)
       td = link_to 'Destroy', option, method: :delete, data: { confirm: 'Are you sure?' }
+
+.actions.pull-right
+  = link_to 'New Option', new_option_path, class: "btn btn-default"

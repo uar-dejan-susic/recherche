@@ -1,3 +1,23 @@
 // Place all the styles related to the Option controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.navbar-brand {
+  padding-top: 0px;
+}
+
+.counts {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.actions {
+  padding-top: .5em;
+
+  .btn {
+    margin-left: .5em;
+  }
+}
+
+.form-button {
+  margin-left: .5em;
+}

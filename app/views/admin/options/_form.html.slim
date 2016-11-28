@@ -1,22 +1,15 @@
-= form_for(option) do |f|
+= simple_form_for(option) do |f|
     - if option.errors.any?
-    #error_explanation
-      h2 #{pluralize(option.errors.count, "error")} prohibited this person from being saved:
-      ul
-      - option.errors.full_messages.each do |message|
-        li = message
+      #error_explanation
+        h2 #{pluralize(option.errors.count, "error")} prohibited this person from being saved:
+        ul
+        - option.errors.full_messages.each do |message|
+          li = message
 
-    .field
-      = f.label :title
-      = f.text_field :title
-
-    .field
-      = f.label :available_slots
-      = f.text_field :available_slots
-
-    .field
-      = f.label :template
-      = f.text_field :template
+    = f.input :title
+    = f.input :available_slots
+    = f.input :template, collection: [['Education Portfolio','education_portfolio']]
+    = f.association :prospects, as: :check_boxes
 
     .actions
-      = f.submit
+      = f.submit class: "btn btn-default pull-right"

@@ -12,9 +12,11 @@ module Admin
 
     def new
       @option = Option.new
+      @people = Person.all
     end
 
     def edit
+      @people = Person.all
     end
 
     def create
@@ -33,6 +35,7 @@ module Admin
 
     def update
       respond_to do |format|
+        byebug
         if @option.update(option_params)
           format.html { redirect_to @option, notice: 'Option was successfully updated.' }
           format.json { render :show, status: :ok, location: @option }
@@ -59,7 +62,7 @@ module Admin
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def option_params
-      params.require(:option).permit(:title, :template, :available_slots)
+      params.require(:option).permit(:title, :template, :available_slots, :prospect_ids => [])
     end
   end
 end
