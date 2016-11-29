@@ -7,7 +7,13 @@ class Option < ApplicationRecord
   end
 
   def is_expired?
+    return false if is_full?
+    return self.expire_date.utc < DateTime.now.utc if self.expire_date?
     false
+  end
+
+  def is_full?
+    open_slots == 0
   end
 
   def count_accepted

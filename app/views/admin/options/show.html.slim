@@ -6,6 +6,8 @@ p#notice = notice
 
   h4
     = @option.title
+  small
+    | Expires on: #{@option.expire_date}
 
   .slot-info.first
     .title
@@ -15,7 +17,7 @@ p#notice = notice
 
   .slot-info.second.yellow-slot
     .title
-      | Total slots
+      | Slots
     .information
       = @option.available_slots
 
@@ -24,6 +26,12 @@ p#notice = notice
       | Peek
     .information
       = @option.prospects.reckon.count
+
+  .slot-info.fourth.orange-slot
+    .title
+      | Invited
+    .information
+      = @option.count_invited
 
 section.people
   table.table.table-striped.table-hover
@@ -45,6 +53,8 @@ section.people
             span.label.label-success Opted-In
           - if person.checked_in?
             span.label.label-info Was Considering
+          - if person.tried_to_opt_in?
+            span.label.label-danger Tried to opt in
 
 .actions.pull-right
   = link_to 'Edit', edit_option_path(@option), class: 'btn btn-default'

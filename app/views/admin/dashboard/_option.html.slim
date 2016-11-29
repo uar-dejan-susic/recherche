@@ -1,14 +1,15 @@
 .flex-item.flex-md-2of4
   .title
-    p Option:
-      strong #{option.title}
+    strong #{option.title}
   .status
     - if option.is_expired?
       span.label.label-warning Expired
+    - if option.is_full?
+      span.label.label-success Completed
     - else
-      span.label.label-success Active
-      span.label.label-info
-        | #{option.template.titleize}
+      span.label.label-default Active
+    span.label.label-info
+      | #{option.template.titleize}
 .flex-item.flex-item-middle.flex-md-1of4
   .counts.flex-center
     = option.count_accepted

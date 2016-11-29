@@ -76,6 +76,16 @@
     }
   }
 
+  &.orange-slot {
+    color: #fff;
+    background-color: #f6905d;
+    border-color: #f6905d;
+
+    .title {
+      border-color: #f6905d;
+    }
+  }
+
   &.first {
     left: 400px
   }
@@ -86,5 +96,9 @@
 
   &.third {
     left: 572px
+  }
+
+  &.fourth {
+    left: 658px
   }
 }
