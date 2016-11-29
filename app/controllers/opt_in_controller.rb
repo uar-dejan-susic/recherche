@@ -34,7 +34,7 @@ class OptInController < ApplicationController
     @option = @prospect.present? ? @prospect.option : nil
     raise ActionController::RoutingError.new('Not Found') if @prospect.nil?
     @prospect.i_might! unless @prospect.opted_in?
-    redirect_to action: 'expired' if @prospect.opted_in? || @option.is_expired?
+    redirect_to action: 'expired' if @prospect.opted_in? || @prospect.tried_to_opt_in? || @option.is_expired?
   end
 
   def person_params

@@ -7,12 +7,16 @@ class Prospect < ApplicationRecord
   scope :accepted, -> { where(opted_in: true) }
   scope :reckon, -> { where(checked_in: true) }
 
-  delegate :name, to: :person
+  delegate :name, :first_name, :last_name, to: :person
 
   def i_want!
-    self.opted_in = true
-    self.opted_in_date = DateTime.now
-    self.save!
+    if option.is_full? || option.is_expired?
+      self.i_tried!
+    else
+      self.opted_in = true
+      self.opted_in_date = DateTime.now
+      self.save!
+    end
   end
 
   def i_tried!

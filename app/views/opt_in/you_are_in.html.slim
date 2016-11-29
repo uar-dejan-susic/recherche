@@ -1,3 +1,8 @@
-h4 Opted-in for #{@option.template.parameterize.titleize}
+- if @prospect.opted_in?
+    h4 Opted-in for #{@option.template.parameterize.titleize}
 
-= render @option.template.parameterize.underscore + '_opted_in'
+    = render @option.template.parameterize.underscore + '_opted_in'
+- else
+    h4 You are not Opted-in for #{@option.template.parameterize.titleize}
+
+    = render @option.template.parameterize.underscore + '_not_opted_in'
