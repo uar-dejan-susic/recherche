@@ -7,7 +7,8 @@
     - if option.is_full?
       span.label.label-success Completed
     - else
-      span.label.label-default Active
+      - if !option.is_expired? && !option.is_full?
+        span.label.label-default Active
     span.label.label-info
       | #{option.template.titleize}
 .flex-item.flex-item-middle.flex-md-1of4

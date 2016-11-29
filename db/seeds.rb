@@ -49,8 +49,7 @@ option = Option.create([
         title:  "#{Faker::Name.name} portfolio is ready",
         template: 'education_portfolio',
         available_slots: 2,
-        people: prospects[1..10],
-        expire_date: 14.days.ago
+        people: prospects[1..10]
     }
                        ])
 
@@ -68,3 +67,5 @@ p3.i_tried!
 
 px = full_option.prospects[4..6]
 px.each { |prospect| prospect.i_might! }
+
+full_option.update({expire_date: 14.days.ago})
